@@ -1,0 +1,23 @@
+{% extends 'quiz/base_template.html' %}
+{% load staticfiles %}
+
+{% block style %}
+<link rel="stylesheet" type="text/css" href="{% static 'quiz/user_form.css' %}">
+
+{% endblock %}
+
+
+{% block body %}
+
+<div class="container-fluid">
+
+<form action="" method="post">
+
+    {% csrf_token %}
+     <img src="{% static 'quiz/images/avatar.jpg' %}">
+    {% include 'quiz/form_template.html' %}
+    <button type="submit" class="btn btn-primary">Register</button>
+
+</form>
+</div>
+{% endblock %}

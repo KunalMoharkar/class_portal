@@ -1,0 +1,50 @@
+{% extends 'quiz/base_template.html' %}
+{% load staticfiles %}
+
+{% block style %}
+<link rel="stylesheet" type="text/css" href="{% static 'quiz/home.css' %}">
+
+{% endblock %}
+
+{% block body %}
+
+
+
+
+{% for x in all_que %}
+
+    {% if status.id == 'solved' %}
+
+        {% if curr_que.id == 0 %}
+
+            <div class="container p-3 my-3 bg-dark text-white" >
+                <h2>QUESTION {{x.pk}}</h2>
+                <p>{{x.question_title}}</p>
+            </div>
+
+        {% else  %}
+             <a href="{{x.pk}}">
+             <div class="container p-3 my-3 bg-dark text-white" >
+                <h2>QUESTION {{x.pk}}</h2>
+                <p>{{x.question_title}}</p>
+            </div>
+             </a>
+        {% endif %}
+
+
+    {% else %}
+        <a href="{{x.pk}}">
+
+        <div class="container p-3 my-3 bg-dark text-white" >
+
+            <h2>  QUESTION {{x.pk}}</h2>
+            <p>{{x.question_title}}</p>
+
+        </div>
+
+        </a>
+    {% endif %}
+
+ {% endfor %}
+
+{% endblock %}

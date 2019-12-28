@@ -1,0 +1,32 @@
+
+{% load staticfiles %}
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="{% static 'quiz/login.css' %}">
+
+<div class="container-fluid">
+
+<form method="post" action="">
+    {% csrf_token %}
+
+    <img src="{% static 'quiz/images/avatar.jpg' %}">
+     <div class="form-group">
+    <label for="user">Username:</label>
+    <input type="text" class="form-control" placeholder="Enter Username" id="user" name="username">
+    </div>
+
+    <div class="form-group">
+    <label for="pwd">Password:</label>
+    <input type="password" class="form-control" placeholder="Enter password" id="pwd" name="password">
+    </div>
+
+
+    <button type="submit" class="btn btn-primary">Login</button>
+
+    New user...click <a href="{% url 'quiz:register' %}">here</a> to register
+
+</form>
+
+</div>

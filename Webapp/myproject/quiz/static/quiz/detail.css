@@ -1,0 +1,35 @@
+
+    .container{
+
+        transition-duration: 500ms;
+        border-radius: 0.5rem;
+        background-color: cadetblue;
+    }
+
+    a:hover{
+
+        text-decoration: none;
+    }
+
+    .container:hover{
+        box-shadow: gray 0 1vh 0.7vh;
+
+    }
+
+    #submit-button{
+
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: lightsteelblue;
+        padding: 5px 5px 5px 5px;
+        margin-top: 3px;
+        border-radius: 0.5rem ;
+        border-style: none;
+        transition-duration: 500ms;
+    }
+    #submit-button:hover{
+        background-color: slategray;
+        transform: scale(1.1);
+
+    }

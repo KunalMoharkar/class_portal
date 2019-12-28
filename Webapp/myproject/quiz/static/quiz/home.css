@@ -1,0 +1,17 @@
+ .container{
+
+        transition-duration: 500ms;
+        border-radius: 0.5rem;
+    }
+
+    a:hover{
+
+        text-decoration: none;
+    }
+
+    .container:hover{
+
+        transform: scale(1.02);
+        box-shadow: gray 0 1vh 0.7vh;
+
+    }

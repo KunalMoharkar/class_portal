@@ -1,0 +1,76 @@
+{% extends 'quiz/base_template.html' %}
+{% load staticfiles %}
+
+{% block style %}
+<link rel="stylesheet" type="text/css" href="{% static 'quiz/detail.css' %}" />
+{%  endblock  %}
+
+
+
+{% block body %}
+
+<div class="container p-3 my-3  text-white" >
+<h1>  {{selected_que.question_title}} </h1>
+<p> {{selected_que.question_content}} </p>
+</div>
+
+<div class="container p-3 my-3 bg-white text-black" >
+
+  <form method="post" action="check/">
+
+      {% csrf_token %}
+
+    <input type="radio" name="ans" value="{{selected_que.question_opt1}}">{{selected_que.question_opt1}}<br>
+      <input type="radio" name="ans" value="{{selected_que.question_opt2}}">{{selected_que.question_opt2}}<br>
+      <input type="radio" name="ans" value="{{selected_que.question_opt3}}">{{selected_que.question_opt3}}<br>
+       <input type="radio" name="ans" value="{{selected_que.question_opt4}}">{{selected_que.question_opt4}}<br>
+
+      {% if request.method != 'POST' %}
+      <input type="submit" value="submit" id="submit-button">
+      {% endif %}
+
+  </form>
+
+
+</div>
+
+<div class="container p-3 my-3  text-white" >
+</div>
+
+<div class="container-fluid">
+
+{% if request.method == 'POST' %}
+
+    <a href="{% url 'quiz:homepage' %}"> back </a>
+
+    {% if selected_que.question_ans == answered_que %}
+    <div class="alert alert-success">
+    <h1>correct</h1>
+    </div>
+
+
+
+
+    {% else %}
+    <div class="alert alert-danger ">
+    <h1>Wrong</h1>
+    </div>
+
+    {% endif %}
+
+    <div class="alert alert-info ">
+    <h1>{{selected_que.question_solution}}</h1>
+    </div>
+
+
+
+
+
+
+
+
+
+{% endif %}
+
+</div>
+{% endblock %}
